@@ -1,0 +1,25 @@
+{
+  "homepage": "https://longyun0701.github.io/LJL_press_temp",
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "d3": "^7.8.5"
+  },
+  "main": "/index.js",
+  "devDependencies": {
+    "react-scripts": "^1.1.5"
+  },
+  "name": "press_temp",
+  "description":"",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}

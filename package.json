@@ -10,7 +10,7 @@
   "main": "/index.js",
   "devDependencies": {
     "gh-pages": "^6.1.1",
-    "react-scripts": "^1.1.5"
+    "react-scripts": "^5.0.1"
   },
   "name": "press_temp",
   "description": "",

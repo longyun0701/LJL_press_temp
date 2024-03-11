@@ -46,28 +46,56 @@ export function CC_P_T(P,P0,T0,dHvap) {
     return T;
   }
 
-export const models = {
+  export const models = {
     'Antoine': {name_cn: '安托因方程',
                 name_en: 'Antoine Equation',
                 abbr: 'Antoine',
+                point: 'open',
                },
     'CC':      {name_cn:'克劳修斯-克拉珀龙方程',
                 name_en: 'Clausius Clapeyron Equation',
                 abbr: 'CC',
+                point: 'closed',
               }
   }
   
-export const substances = {
+  export const substances = {
     'Water':   {name_cn: '水',
                 name_en: 'Water',
                 abbr: 'Water',
-                antoine_params: {A: 5.08354, B:1663.125, C:-45.622, T_lo: 273,T_hi: 373.15, P_lo: 0.05, P_hi:3.0},
+                antoine_params: {A: 5.08354, B:1663.125, C:-45.622, T_lo: 0,T_hi: 133, P_lo: 0.05, P_hi:3.0},
                 CC_params: {P0:1.01325, T0:373.15, dHvap:41050},
+                color: 'red',
                },
     'Ethanol': {name_cn: '乙醇 (酒精)',
                 name_en: 'Ethanol (alcohol)',
                 abbr: 'Ethanol',
                 antoine_params: {A:5.24677,B:1598.673,C:-46.424, T_lo: 20 ,T_hi: 91, P_lo:0.05 , P_hi:3.0},
                 CC_params: {P0:1.01325, T0:351.5, dHvap:42300},
-               }
+                color: 'blue',
+               },
+
+    'Chexane': {name_cn: '环己烷 (C6H12)',
+               name_en: 'Cyclohexane',
+               abbr: 'Chexane',
+               antoine_params: {A:4.13983,B:1316.554,C:-35.581, T_lo: 10 ,T_hi: 250, P_lo:0.04 , P_hi:9.0},
+               CC_params: {P0:1.01325, T0:353.9, dHvap:33100},
+               color: 'green',
+              },
+
+    'Benzene': {name_cn: '苯 (C6H6)',
+              name_en: 'Benzene',
+              abbr: 'Benzene',
+              antoine_params: {A:4.72583,B:1660.652,C:-1.461, T_lo: 15 ,T_hi: 130, P_lo:0.05 , P_hi:3.5},
+              CC_params: {P0:1.01325, T0:353.3, dHvap:33900},
+              color: 'orange',
+             },    
+    'CCl4': {name_cn: '四氯化碳 (CCl4)',
+             name_en: 'Carbon Tetrachloride',
+             abbr: 'CCl4',
+             antoine_params: {A:4.02291,B:1221.781,C:-45.739, T_lo: 20 ,T_hi: 80, P_lo:0.1 , P_hi:1.11},
+             CC_params: {P0:1.01325, T0:349.8, dHvap:32000},
+             color: 'cyan',
+            }
+
   }

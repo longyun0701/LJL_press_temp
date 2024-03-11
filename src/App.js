@@ -54,7 +54,7 @@ function FootNote({lang}) {
 
 function Main({lang}) {
   const model_list = ['Antoine','CC'];
-  const substance_list = ['Water','Ethanol'];
+  const substance_list = ['Water','Ethanol', 'Chexane', 'Benzene', 'CCl4'];
   const [selectedModel, setSelectedModel] = useState('Antoine');
   const [selectedSubstance, setSelectedSubstance] = useState('Water');
   const [TP_data, setTP_data] = useState([]);
@@ -112,7 +112,8 @@ function Main({lang}) {
     const {A,B,C} = substances[selectedSubstance].antoine_params;
     const {P0,T0,dHvap} = substances[selectedSubstance].CC_params;
     const model_sub = models[selectedModel].abbr + '-' + substances[selectedSubstance].abbr
-
+    const color = substances[selectedSubstance].color, point = models[selectedModel].point;
+    
     let Pn = parseFloat(P_in);
     if (isNaN(Pn)) {alert(alert_info); return};
     if (Pn<0.05) Pn=0.05; if (Pn>3.0) Pn=3.0;
@@ -121,7 +122,8 @@ function Main({lang}) {
     const T_out_C = T_out_K - 273.15;
   
     setT_out(T_out_C); setP_in(Pn);
-    setTP_data(prevTP => [...prevTP, [T_out_C,Pn, model_sub]]);
+    //setTP_data(prevTP => [...prevTP, [T_out_C,Pn, model_sub]]);
+    setTP_data(prevTP => [...prevTP, [T_out_C,Pn, model_sub,color, point]]);
     
   }
 
@@ -130,6 +132,7 @@ function Main({lang}) {
     const {A,B,C} = substances[selectedSubstance].antoine_params;
     const {P0,T0,dHvap} = substances[selectedSubstance].CC_params;
     const model_sub = models[selectedModel].abbr + '-' + substances[selectedSubstance].abbr
+    const color = substances[selectedSubstance].color, point = models[selectedModel].point;
 
     let Tn = parseFloat(T_in);
     if (isNaN(Tn)) {alert(alert_info);return};
@@ -139,7 +142,8 @@ function Main({lang}) {
     const P_out_atm = P_out_bar/1.01325;
   
     setP_out(P_out_atm); setT_in(Tn);
-    setTP_data(prevTP => [...prevTP, [Tn,P_out_atm, model_sub]]);
+    //setTP_data(prevTP => [...prevTP, [Tn,P_out_atm, model_sub]]);
+    setTP_data(prevTP => [...prevTP, [Tn,P_out_atm, model_sub,color, point]]);
 
     
   }

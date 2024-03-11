@@ -29,18 +29,18 @@ export function OutputGraph({data, lang}) {
         const yScale = d3.scaleLinear()
                         .domain([0, 1])
                         .range([height-margin.bottom, margin.top]);
-        console.log('UseEffect works');
-        console.log(data.length);
+
 
         if (data.length >0) {
 
-            console.log('data not empty');
 
             svg.selectAll('circle').data(data).join("circle")
                         .attr("cx", d => xScale(d[0]))
                         .attr("cy", d => yScale(d[1]))
                         .attr("r",  3)
-                        .attr('fill','red')
+                        .attr('fill', d=> ((d[4]==='closed') ? d[3]:'white'))
+                        .attr('stroke', d=> ((d[4]==='open') ? d[3]:'white'))
+                        .attr('stroke-width', '1px')
                         ;
         }
 
